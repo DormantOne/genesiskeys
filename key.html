@@ -8,7 +8,7 @@
 
 <input type="text" id="emailPrefix" name="emailPrefix">
 
-<button onclick="sendEmail()">Send Email</button>
+<button onclick="sendEmail()">Send Email Door Codes</button>
 
 <script>
 // Retrieve and set the stored email prefix when the page is fully loaded
@@ -27,7 +27,7 @@ function sendEmail() {
 
   var fullEmail = emailPrefix + "@genesishcc.com";
   var subject = "codes";
-  var body = encodeURIComponent("https://docs.google.com/document/d/1AqTWzWjlLg8XomzKRZqlQG-EEBWXzYuONEMUP4By-bI/edit?usp=sharing");
+  var body = encodeURIComponent("Link to door codes: https://docs.google.com/document/d/1AqTWzWjlLg8XomzKRZqlQG-EEBWXzYuONEMUP4By-bI/edit?usp=sharing");
   window.open(`mailto:${fullEmail}?subject=${subject}&body=${body}`);
 }
 </script>
