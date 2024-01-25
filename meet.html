@@ -23,7 +23,7 @@ function sendEmail() {
   var emailPrefix = document.getElementById('emailPrefix').value;
   localStorage.setItem('emailPrefix', emailPrefix);
 
-  var fullEmail = emailPrefix + "@yourdomain.com"; // Replace 'yourdomain.com' with your domain
+  var fullEmail = emailPrefix + "@genesishcc.com"; // Replace 'yourdomain.com' with your domain
   var subject = "Daily Meeting";
   var body = encodeURIComponent("Daily Meeting: https://meet.google.com/wor-tmzm-uky?pli=1&authuser=1");
   window.open(`mailto:${fullEmail}?subject=${subject}&body=${body}`);
