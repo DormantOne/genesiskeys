@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Email Sender</h2>
+
+<p>Please enter your genesis email prefix eg mary.smith:</p>
+
+<input type="text" id="emailPrefix" name="emailPrefix">
+
+<button onclick="sendEmail()">Send Email</button>
+
+<script>
+// Retrieve and set the stored email prefix when the page is fully loaded
+window.onload = function() {
+  var savedEmailPrefix = localStorage.getItem('emailPrefix');
+  if (savedEmailPrefix) {
+    document.getElementById('emailPrefix').value = savedEmailPrefix;
+  }
+};
+
+function sendEmail() {
+  var emailPrefix = document.getElementById('emailPrefix').value;
+
+  // Save the email prefix in localStorage
+  localStorage.setItem('emailPrefix', emailPrefix);
+
+  var fullEmail = emailPrefix + "@genesishcc.com";
+  var subject = "codes";
+  var body = encodeURIComponent("https://docs.google.com/document/d/1AqTWzWjlLg8XomzKRZqlQG-EEBWXzYuONEMUP4By-bI/edit?usp=sharing");
+  window.open(`mailto:${fullEmail}?subject=${subject}&body=${body}`);
+}
+</script>
+
+</body>
+</html>
