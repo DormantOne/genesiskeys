@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Daily Meeting</h2>
+
+<p>Please enter your email prefix (e.g., jane.doe):</p>
+<input type="text" id="emailPrefix" name="emailPrefix" value="">
+
+<button onclick="sendEmail()">Send Email</button>
+
+<script>
+// Function to load the email prefix from localStorage
+function loadEmailPrefix() {
+  var savedEmailPrefix = localStorage.getItem('emailPrefix');
+  if (savedEmailPrefix) {
+    document.getElementById('emailPrefix').value = savedEmailPrefix;
+  }
+}
+
+// Function to send an email and save the email prefix to localStorage
+function sendEmail() {
+  var emailPrefix = document.getElementById('emailPrefix').value;
+  localStorage.setItem('emailPrefix', emailPrefix);
+
+  var fullEmail = emailPrefix + "@yourdomain.com"; // Replace 'yourdomain.com' with your domain
+  var subject = "Daily Meeting";
+  var body = encodeURIComponent("Daily Meeting: https://meet.google.com/wor-tmzm-uky?pli=1&authuser=1");
+  window.open(`mailto:${fullEmail}?subject=${subject}&body=${body}`);
+}
+
+// Load the email prefix when the page is loaded
+window.onload = loadEmailPrefix;
+</script>
+
+</body>
+</html>
