@@ -23,7 +23,7 @@ function sendEmail() {
   var emailPrefix = document.getElementById('emailPrefix').value;
   localStorage.setItem('emailPrefix', emailPrefix);
 
-  var fullEmail = emailPrefix + "@yourdomain.com"; // Replace 'yourdomain.com' with your domain
+  var fullEmail = emailPrefix + "@genesishcc.com"; // Replace 'yourdomain.com' with your domain
   var subject = "Email Sender Audits";
   var body = encodeURIComponent("Link to Audit Page: https://docs.google.com/document/d/1T5InNSNsWIyPJwPvZPL01_32xLBMmYvmEQt1iU_Pq0E/edit?usp=sharing");
   window.open(`mailto:${fullEmail}?subject=${subject}&body=${body}`);
