@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Viewport meta tag -->
     <style>
         body {
             font-size: 16px; /* Default font size for desktop */
         }
 
         input, button {
-            padding: 10px; /* Larger padding for input and button */
-            font-size: 1em; /* Larger font size */
+            padding: 12px; /* Slightly larger padding for input and button */
+            font-size: 1em; /* Base font size */
+            margin: 5px 0; /* Add some margin for spacing */
         }
 
         /* Media query for screens smaller than 600px */
         @media screen and (max-width: 600px) {
             body {
-                font-size: 20px; /* Increase font size for smaller screens */
+                font-size: 22px; /* Increase font size for smaller screens */
             }
 
             input, button {
                 width: 100%; /* Make input and button fill the screen width */
                 box-sizing: border-box; /* Ensure padding doesn't affect total width */
+                padding: 15px; /* Larger padding for touch targets */
+                font-size: 1.2em; /* Larger font size for readability */
             }
         }
     </style>
