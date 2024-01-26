@@ -54,7 +54,7 @@ function sendEmail() {
   var emailPrefix = document.getElementById('emailPrefix').value;
   localStorage.setItem('emailPrefix', emailPrefix);
 
-  var fullEmail = emailPrefix + "@yourdomain.com"; // Replace 'yourdomain.com' with your domain
+  var fullEmail = emailPrefix + "@genesishcc.com"; // Replace 'yourdomain.com' with your domain
   var subject = "Email Sender Unit Numbers";
   var body = encodeURIComponent("Link to Unit Numbers: https://docs.google.com/document/d/1xvxLN0AxCr-gHQk_FTHqmCGoO68y4VtnbAbCthjCfNU/edit?usp=sharing");
   window.open(`mailto:${fullEmail}?subject=${subject}&body=${body}`);
