@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Share QR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .small-button {
+            padding: 5px 10px;
+            font-size: 12px;
+            margin: 0 5px;
+        }
+
+        .small-button {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 14px;
+            }
+
+            .small-button {
+                width: 90%;
+                padding: 10px;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            canvas {
+                width: 90%;
+                max-width: 250px;
+                height: auto;
+                margin-top: 15px;
+            }
+        }
+
+        .active-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
+</head>
+<body>
+    <h1>Share QR</h1> <!-- Header added here -->
+    <div>
+        <button id="handbookButton" class="small-button" onclick="generateQRCodeWithLabel('https://patienteducationpi.wixsite.com/website-14/', 'Share Handbook')">Share Handbook</button>
+        <button id="auditButton" class="small-button" onclick="generateQRCodeWithLabel('https://forms.gle/TeB2XTSGRTbNuzXs9/', 'Share Audit')">Share Audit</button>
+    </div>
+
+    <canvas id="qrcode"></canvas>
+    <p id="qrLabel"></p> <!-- Display label for QR code -->
+
+    <script>
+        function generateQRCode(link) {
+            new QRious({
+                element: document.getElementById('qrcode'),
+                value: link,
+                size: 200
+            });
+        }
+
+        function generateQRCodeWithLabel(link, label) {
+            generateQRCode(link);
+            document.getElementById('qrLabel').innerText = label;
+            setActiveButton(label === 'Share Handbook' ? document.getElementById('handbookButton') : document.getElementById('auditButton'));
+        }
+
+        function setActiveButton(selectedButton) {
+            var buttons = document.querySelectorAll('.small-button');
+            buttons.forEach(function (button) {
+                button.classList.remove('active-button');
+            });
+            if (selectedButton) {
+                selectedButton.classList.add('active-button');
+            }
+        }
+    </script>
+
+</body>
+</html>
